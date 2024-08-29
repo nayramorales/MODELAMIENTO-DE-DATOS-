@@ -16,22 +16,18 @@ Detalles de las campañas: Identificación de la campaña, nombre de la campaña
 # Conversión de Leads
 Detalles de conversión: Identificación del lead, fecha de contacto, fuente de lead (campaña, orgánico, referido), estado del lead (convertido o no convertido).
 
-# TAREA
-
-# Modelo Entidad-Relación (ERD)
-
 Requisitos adicionales
 Los clientes pueden adquirir varios cursos  activos al mismo tiempo. Es importante generar informes sobre el estado de cursos adquiridos.
-# Normalización:
-Normaliza las tablas de tu modelo hasta la tercera forma normal (3NF) para evitar redundancias y asegurar la integridad de los datos. Consultas SQL
 
+# TAREA
 # Modelo Entidad-Relación (ERD)
+
 
 # Normalización
 Normaliza las tablas de tu modelo hasta la tercera forma normal (3NF) para evitar redundancias y asegurar la integridad de los datos. Consultas SQL:
 # Escribe consultas SQL para
-Obtener el total de ventas por categoría de curso
+Obtener el total de ventas por categoría de curso,,
 Mostrar el total de ventas realizadas por clientes nuevos y recurrentes
-Listar las ventas generadas por cada campaña de marketing
-Calcular el retorno sobre inversión (ROI) de las campañas de marketing
+Listar las ventas generadas por cada campaña de marketing,
+Calcular el retorno sobre inversión (ROI) de las campañas de marketing y
 Obtener el total de pagos realizados y el saldo pendiente por venta:
