@@ -10,7 +10,7 @@ Detalles del curso: Nombre del curso, categoría (por ejemplo:curso,especializac
 # Asesor de venta 
  Detalles de la venta: Nombre completo, correo electrónico, ID vendedor
  # compra
- Detalles de la compra: fecha de compra, nombre de asesor,Estado (Activa, Cancelada)
+ Detalles de la compra:  nombre de cliente, fecha de compra, nombre de asesor,Estado (Activa, Cancelada)
 # Pagos
 Detalles del pago: Identificación del pago, identificación de la venta, fecha del pago, monto pagado, y método de pago (tarjeta de crédito, PayPal, transferencia bancaria).
 # cuotas
