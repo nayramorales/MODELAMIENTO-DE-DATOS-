@@ -7,8 +7,8 @@ EduCourses es una empresa que ofrece una variedad de cursos y programas de forma
 Información necesaria: Nombre completo, correo electrónico, número de celular, DNI, fecha de registro, .
 # Cursos
 Detalles del curso: Nombre del curso, categoría (por ejemplo:curso,especialización), nivel (básico, intermedio, avanzado), duración en horas, y precio , ID de curso.
-# Ventas
- Detalles de la venta: Identificación de la venta, fecha de la venta, cliente que realizó la compra, curso(s) comprado(s), cantidad de cada curso, y el total de la venta.
+# Asesor de venta 
+ Detalles de la venta: Nombre completo, correo electrónico, ID vendedor
 # Pagos
 Detalles del pago: Identificación del pago, identificación de la venta, fecha del pago, monto pagado, y método de pago (tarjeta de crédito, PayPal, transferencia bancaria).
 
