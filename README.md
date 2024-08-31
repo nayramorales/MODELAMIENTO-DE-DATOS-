@@ -9,11 +9,14 @@ Información necesaria: Nombre completo, correo electrónico, número de celular
 Detalles del curso: Nombre del curso, categoría (por ejemplo:curso,especialización), nivel (básico, intermedio, avanzado), duración en horas, y precio , ID de curso.
 # Asesor de venta 
  Detalles de la venta: Nombre completo, correo electrónico, ID vendedor
+ # compra
+ Detalles de la compra: fecha de compra, nombre de asesor,Estado (Activa, Cancelada)
 # Pagos
 Detalles del pago: Identificación del pago, identificación de la venta, fecha del pago, monto pagado, y método de pago (tarjeta de crédito, PayPal, transferencia bancaria).
-
+# cuotas
+detalles de cuota: cuota, pago, monto y fecha de vencimiento.
 Requisitos adicionales
-Los clientes pueden adquirir varios cursos  activos al mismo tiempo. Es importante generar informes sobre el estado de cursos adquiridos se permite que las ventas puedan ser canceladas con 1 o varios pagos.
+Los clientes pueden adquirir varios cursos  activos al mismo tiemp, Una compra puede incluir varios cursos, y un curso puede estar en muchas comprast Es importante generar informes sobre el estado de cursos adquiridos se permite que las ventas puedan ser canceladas con 1 o varios pagos.
 
 # TAREA
 # Modelo Entidad-Relación (ERD)
