@@ -1,4 +1,4 @@
-# MODELAMIENTO-DE-DATOS para venta de cursos online-
+# MODELAMIENTO-DE-DATOS para venta de cursos online
 #CONTEXTO
 
 EduCourses es una empresa que ofrece una variedad de cursos y programas de formación, principalmente en línea.necesita un sistema de base de datos para llevar un registro detallado de sus ventas, clientes, y cursos. El objetivo es generar reportes de ventas que faciliten la toma de decisiones estratégicas para optimizar las ofertas de cursos y mejorar las campañas de marketing. 
