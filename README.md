@@ -21,8 +21,10 @@ Los clientes pueden adquirir varios cursos  activos al mismo tiempo, Una compra 
 
 # TAREA
 # Modelo Entidad-Relación (ERD)
+Diseña un modelo entidad-relación que represente los datos y relaciones descritos en los requerimientos. Asegúrate de identificar las llaves primarias y foráneas, y de definir las cardinalidades entre las entidades.
 
 # Normalización
+s tablas de tu modelo hasta la tercera forma normal (3NF) para evitar redundancias y asegurar la integridad de los datos. Consultas SQL:
 
 # Escribe consultas SQL para
 Obtener el total de ventas por categoría de curso,
