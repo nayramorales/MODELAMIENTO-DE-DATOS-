@@ -10,7 +10,7 @@ Detalles del curso: Nombre del curso, categoría (por ejemplo:curso,especializac
 # Asesor de venta 
  Detalles de la venta: Nombre completo, correo electrónico, ID vendedor
  # compra
- Detalles de la compra:  nombre de cliente, fecha de compra, nombre de asesor,Estado (Activa, Cancelada)
+ Detalles de la compra:  nombre de cliente, fecha de compra, nombre de asesor,Estado (Activa, Cancelada), nombre de curso
 # Pagos
 Detalles del pago: Identificación del pago, identificación de la venta, fecha del pago, monto pagado, y método de pago (tarjeta de crédito, PayPal, transferencia bancaria).
 # cuotas
@@ -29,4 +29,4 @@ s tablas de tu modelo hasta la tercera forma normal (3NF) para evitar redundanci
 # Escribe consultas SQL para
 Obtener el total de ventas por categoría de curso,
 Mostrar los 3 cursos más vendidos y
-Obtener el total de pagos realizados y el saldo pendiente por venta:
+Obtener el total de pagos realizados y el saldo pendiente por venta
