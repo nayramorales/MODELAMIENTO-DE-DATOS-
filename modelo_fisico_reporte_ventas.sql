@@ -5,7 +5,7 @@ Go
 USE  reporte_ventas_marketing;
 GO
 
--- 1Tabla Clientes
+-- Tabla Clientes
 CREATE TABLE [clientes] (
     [id] INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
     [persona_id] INT NOT NULL,
@@ -18,12 +18,12 @@ CREATE TABLE [clientes] (
 );
 GO
 
--- 2Tabla curso
+-- Tabla curso
 CREATE TABLE [curso] (
     [id] INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
     [nombre] NVARCHAR(100) NOT NULL,
-    [categoria] NVARCHAR(255) NOT NULL,
-	[duracion_horas] numeric(4) NOT NULL,
+    [categoría] NVARCHAR(255) NOT NULL,
+	[duración_horas] numeric(4) NOT NULL,
 
 );
 GO
@@ -75,10 +75,10 @@ CREATE TABLE [compra] (
 	[monto_de_compra] MONEY NOT NULL,
     [cliente_id] INT NOT NULL,
 	[asesor_id] INT NOT NULL,
-	[curso_id] INT NOT NULL,
-    CONSTRAINT fk  FOREIGN KEY ([cliente_id]) REFERENCES [clientes]([id]),
-    CONSTRAINT fk FOREIGN KEY ([curso_id]) REFERENCES [curso]([id]),
-	CONSTRAINT fk FOREIGN KEY ([asesor_id]) REFERENCES [trabajadores]([id]),
+	[curso_id] INT NOT NULL, 
+	FOREIGN KEY ([cliente_id]) REFERENCES [clientes]([id]),
+   FOREIGN KEY ([curso_id]) REFERENCES [curso]([id]),
+   FOREIGN KEY ([asesor_id]) REFERENCES [trabajadores]([id]),
 	
 );
 GO
@@ -94,8 +94,7 @@ CREATE TABLE [compra pagos] (
     [cantidad_curso]numeric(20) NOT NULL,
     [pago_id] INT NOT NULL,
    
-    CONSTRAINT fk__ FOREIGN KEY ([pago_id]) REFERENCES [pagos]([id]),
-    CONSTRAINT fk_ FOREIGN KEY (compra_id) REFERENCES [compra]([id]),
+     FOREIGN KEY ([pago_id]) REFERENCES [pagos]([id]),
+    FOREIGN KEY (compra_id) REFERENCES [compra]([id]),
 	);
 GO
-
