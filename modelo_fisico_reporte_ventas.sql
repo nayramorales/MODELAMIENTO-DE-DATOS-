@@ -8,13 +8,11 @@ GO
 -- Tabla Clientes
 CREATE TABLE [clientes] (
     [id] INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-    [persona_id] INT NOT NULL,
-    [tipo_cliente] NVARCHAR(20) NOT NULL,
+      [nombres_cliente] NVARCHAR(200) NOT NULL,
+    [apellidos_cliente] NVARCHAR(200) NOT NULL,
 	 [celular] varchar (20) NOT NULL, 
 	 [email] varchar (255) NOT NULL,
     [fecha_registro] DATETIME DEFAULT GETDATE()
-
-
 );
 GO
 
@@ -44,6 +42,8 @@ GO
 -- 4 Tabla  trabajadores
 CREATE TABLE [trabajadores] (
     [id] INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+     [nombres_trabajador] NVARCHAR(200) NOT NULL,
+    [apellidos_trabajador] NVARCHAR(200) NOT NULL,
 	 [supervisor_id] INT NULL,
 	 [fecha_ingreso] DATE NOT NULL,
 	FOREIGN KEY (supervisor_id) references trabajadores(id), 
