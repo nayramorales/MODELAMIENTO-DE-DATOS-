@@ -1,5 +1,6 @@
---QUERYS PARA REPORTE:
+-- consultas, funciones definidas por usuario y procedimiento almacenado 
 
+--. consultas 
 --1 ranking de cursos  por unidades vendidas
 SELECT
     c.nombre AS Curso,
@@ -139,3 +140,90 @@ GROUP BY
 ORDER BY 
  AVG(co.monto_de_compra) DESC;
 
+---funciones definidas por el usuario
+
+---- total de ventas  de curso 1 
+
+-- Ejemplo de uso:
+CREATE FUNCTION dbo.TotalVentasPorCurso (@cursoId INT)
+
+RETURNS MONEY
+AS
+BEGIN
+    DECLARE @totalVentas MONEY;
+
+    SELECT @totalVentas = SUM(c.monto_de_compra)
+    FROM compra c
+    WHERE c.curso_id = @cursoId AND c.estado_de_compra = 'confirmada';
+
+    RETURN @totalVentas;
+END;
+SELECT dbo.TotalVentasPorCurso(1) AS totalVentasPorCurso;  -- Promedio de ventas para el cliente con ID 1
+
+GO
+
+---total de ventas confirmadas 2024 
+
+-- Ejemplo de uso:
+
+CREATE FUNCTION dbo.ContarComprasConfirmadas (@fechaInicio DATETIME, @fechaFin DATETIME)
+RETURNS INT
+AS
+BEGIN
+    DECLARE @cantidadCompras INT;
+
+    SELECT @cantidadCompras = COUNT(*)
+    FROM compra
+    WHERE estado_de_compra = 'confirmada' AND fecha_compra BETWEEN @fechaInicio AND @fechaFin;
+
+    RETURN @cantidadCompras;
+END;
+SELECT dbo.ContarComprasConfirmadas('2024-01-01', '2024-12-31') AS ComprasConfirmadas2024;  -- Compras confirmadas en 2024
+
+GO
+
+----procedimiento almacenado
+
+---1.inserción nueva compra
+CREATE PROCEDURE registrar_compra
+    @cliente_id INT,
+    @asesor_id INT,
+    @curso_id INT,
+    @monto_de_compra MONEY,
+    @estado_de_compra VARCHAR(55)
+AS
+BEGIN
+    INSERT INTO compra (fecha_compra, estado_de_compra, monto_de_compra, cliente_id, asesor_id, curso_id)
+    VALUES (GETDATE(), @estado_de_compra, @monto_de_compra, @cliente_id, @asesor_id, @curso_id);
+END;
+GO
+
+--- de ejemplo registrar nvo compra
+EXEC registrar_compra
+    @cliente_id = 1,      -- Reemplaza con el ID del cliente
+    @asesor_id = 4,       -- Reemplaza con el ID del asesor
+    @curso_id = 3,        -- Reemplaza con el ID del curso
+    @monto_de_compra = 2500.00,  -- Reemplaza con el monto de la compra
+    @estado_de_compra = 'Completa';  -- Reemplaza con el estado deseado
+
+-----2.insertar nuevo cliente
+
+CREATE PROCEDURE agregar_cliente
+    @nombres_cliente NVARCHAR(200),
+    @apellidos_cliente NVARCHAR(200),
+    @celular VARCHAR(20),
+    @email VARCHAR(255)
+AS
+BEGIN
+    INSERT INTO clientes (nombres_cliente, apellidos_cliente, celular, email)
+    VALUES (@nombres_cliente, @apellidos_cliente, @celular, @email);
+END;
+GO
+
+---ejemplo de insertar nuevo cliente
+
+EXEC agregar_cliente
+    @nombres_cliente = N'Gregory',
+    @apellidos_cliente = N'Morales',
+    @celular = '923456789',
+    @email = 'gregory.morales@gmail.com';
