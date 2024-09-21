@@ -182,6 +182,7 @@ SELECT dbo.ContarComprasConfirmadas('2024-01-01', '2024-12-31') AS ComprasConfir
 
 GO
 
+
 ----procedimiento almacenado
 
 ---1.inserción nueva compra
@@ -193,14 +194,31 @@ CREATE PROCEDURE registrar_compra
     @estado_de_compra VARCHAR(55)
 AS
 BEGIN
+	
+	IF EXISTS (SELECT 1 FROM clientes WHERE id = @cliente_id)
+    BEGIN
     INSERT INTO compra (fecha_compra, estado_de_compra, monto_de_compra, cliente_id, asesor_id, curso_id)
     VALUES (GETDATE(), @estado_de_compra, @monto_de_compra, @cliente_id, @asesor_id, @curso_id);
+	END
+	ELSE
+    BEGIN
+        -- Opcional: Manejar el caso en el que el celular ya existe
+        PRINT 'El cliente no existe y no se registrará compra.';
+    END
 END;
 GO
 
---- de ejemplo registrar nvo compra
+--- de ejemplo registrar nvo compra (SI SE REGISTRA)
 EXEC registrar_compra
-    @cliente_id = 1,      -- Reemplaza con el ID del cliente
+    @cliente_id = 15,      -- Reemplaza con el ID del cliente
+    @asesor_id = 4,       -- Reemplaza con el ID del asesor
+    @curso_id = 3,        -- Reemplaza con el ID del curso
+    @monto_de_compra = 2500.00,  -- Reemplaza con el monto de la compra
+    @estado_de_compra = 'Completa';  -- Reemplaza con el estado deseado
+
+--- de ejemplo registrar nvo compra (NO SE REGISTRA)
+EXEC registrar_compra
+    @cliente_id = 90,      -- DATO A VERIFICAR
     @asesor_id = 4,       -- Reemplaza con el ID del asesor
     @curso_id = 3,        -- Reemplaza con el ID del curso
     @monto_de_compra = 2500.00,  -- Reemplaza con el monto de la compra
@@ -215,15 +233,34 @@ CREATE PROCEDURE agregar_cliente
     @email VARCHAR(255)
 AS
 BEGIN
-    INSERT INTO clientes (nombres_cliente, apellidos_cliente, celular, email)
-    VALUES (@nombres_cliente, @apellidos_cliente, @celular, @email);
+    -- Verificamos si ya existe un cliente con el mismo celular
+    IF NOT EXISTS (SELECT 1 FROM clientes WHERE celular = @celular)
+    BEGIN
+        -- Si no existe, insertamos el nuevo cliente
+        INSERT INTO clientes (nombres_cliente, apellidos_cliente, celular, email)
+        VALUES (@nombres_cliente, @apellidos_cliente, @celular, @email);
+    END
+	ELSE
+    BEGIN
+        -- Opcional: Manejar el caso en el que el celular ya existe
+        PRINT 'El celular ya está registrado para otro cliente.';
+    END
 END;
-GO
 
----ejemplo de insertar nuevo cliente
+---ejemplo de insertar nuevo cliente 
+--si celular no existe en la tabla clientes, inserta.
 
+-- SI SE REGISTRA
 EXEC agregar_cliente
-    @nombres_cliente = N'Gregory',
+    @nombres_cliente = N'carmen',
+    @apellidos_cliente = N'salazar',
+    @celular = '911333456',
+    @email = 'carmen.salazar@gmail.com'; 
+
+
+-- NO SE REGISTRA 
+EXEC agregar_cliente
+    @nombres_cliente = N'Jeanpier',
     @apellidos_cliente = N'Morales',
-    @celular = '923456789',
-    @email = 'gregory.morales@gmail.com';
+    @celular = '935678901',
+    @email = 'gregory.morales@gmail.com'; 
