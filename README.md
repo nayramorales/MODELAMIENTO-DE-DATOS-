@@ -36,3 +36,8 @@ DIAGRAMA ENTIDAD RELACIÓN
 
 ![Diagrama entidad relación de  Cursos Online ](https://github.com/user-attachments/assets/1e27af27-bdf3-4885-898c-ee9517ca4a78)
 
+MODELO LÓGICO
+
+![ERD DESIGNER (modelo lógico)](https://github.com/user-attachments/assets/815b674d-396a-49a7-9dd3-34a88a5fa438)
+
+
