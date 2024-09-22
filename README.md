@@ -30,3 +30,9 @@ s tablas de tu modelo hasta la tercera forma normal (3NF) para evitar redundanci
 Obtener el total de ventas por categoría de curso,
 Mostrar los 3 cursos más vendidos y
 Obtener el total de pagos realizados y el saldo pendiente por venta
+
+DIAGRAMA ENTIDAD RELACIÓN
+
+
+![Diagrama entidad relación de  Cursos Online ](https://github.com/user-attachments/assets/1e27af27-bdf3-4885-898c-ee9517ca4a78)
+
