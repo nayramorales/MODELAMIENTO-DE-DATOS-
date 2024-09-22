@@ -40,4 +40,7 @@ MODELO LÓGICO
 
 ![ERD DESIGNER (modelo lógico)](https://github.com/user-attachments/assets/815b674d-396a-49a7-9dd3-34a88a5fa438)
 
+MODELO FÍSICO
+
+![MODELO FÍSICO](https://github.com/user-attachments/assets/59df27e6-f77a-4c3d-b6d5-92dd4446c10d)
 
